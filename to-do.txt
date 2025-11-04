@@ -1,0 +1,6 @@
+coisas pra adicionar no projeto:
+
+- parte de login e autenticação, cada usuário terá sua propria lista de tarefas
+- CRUD funções delete e update
+- adicionar uma tabela com FK (pode ser de categorias)
+- se ja tiver passado a data limite, ficar em vermelho (detalhe visual)

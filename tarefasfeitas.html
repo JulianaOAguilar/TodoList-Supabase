@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="pt-BR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List - Tarefas Feitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+
+
+<body class="bg-white flex flex-col items-center justify-center text-center ">
+    <header class="bg-blue-300 p-3 w-full">
+        <h1> To do List da Xinlana </h1>
+    </header>
+    <main>
+
+         <!--Tarefas Feitas-->
+        <section class="bg-white-100 shadow-md p-3 m-3 w-full mx-auto">
+            <h2 class="font-bold p-2 my-3 bg-blue-200"> Tarefas Feitas: </h2>
+
+            <table class="min-w-full bg-white border border-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-2 px-4 border-b">Nome</th>
+                        <th class="py-2 px-4 border-b">Descrição</th>
+                        <th class="py-2 px-4 border-b">Data Limite</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tarefas-feitas">
+
+                </tbody>
+            </table>
+
+        </section>
+
+     <nav class="bg-gray-100 p-3 shadow-md w-full  mx-auto">
+    <ul class="flex gap-4 justify-center">
+        <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
+        <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
+    </ul>
+</nav>
+
+
+    </main>
+
+
+    <script type="module" src="./js/mainTarefasFeitas.js"></script> <!-- se estiver na pasta js -->
+</body>
+
+</html>
+ 
+ 
+ 
+
