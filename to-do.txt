@@ -1,6 +1,5 @@
-coisas pra adicionar no projeto:
-
-- parte de login e autenticação, cada usuário terá sua propria lista de tarefas
-- CRUD funções delete e update
-- adicionar uma tabela com FK (pode ser de categorias)
-- se ja tiver passado a data limite, ficar em vermelho (detalhe visual)
+Mexer nos botões de tarefas (melhorar design)
+Adicionar ícone de update e delete
+Acrescentar um atributo de categorías foreing key
+Se a tarefa tiver 3 dias pra vencer amarela e vencida vermelho
+Acrescentar ou remover categorias

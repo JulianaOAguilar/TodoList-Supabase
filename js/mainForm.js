@@ -1,6 +1,12 @@
 import { adicionarTarefa } from './ui/tarefas.js';
 import { supabase } from './modules/config.js';
-import { carregarTarefas } from './ui/carregarTarefas.js'; // <- para atualizar a lista após inserir
+import { carregarTarefas } from './ui/carregarTarefas.js';
+import { dataHoje } from './modules/tarefas.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    dataHoje()
+})
+
 
 const form = document.getElementById('formTarefa');
 
@@ -47,5 +53,7 @@ form.addEventListener('submit', async (e) => {
 
     // 🔹 Atualiza a lista de tarefas automaticamente
     await carregarTarefas();
+     dataHoje()
   }
 });
+

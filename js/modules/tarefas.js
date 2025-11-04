@@ -20,6 +20,20 @@ export async function buscarTarefas() {
   return data;
 }
 
+export function dataHoje() {
+
+      const dataLimite = document.getElementById('dataLimite');
+    if (!dataLimite) {
+        console.warn("Input #dataLimite não encontrado");
+        return; // agora é permitido, porque está dentro de uma função
+    }
+
+    const hoje = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+    dataLimite.value = hoje;
+    dataLimite.setAttribute('min', hoje);
+}
+
+
 
 export async function alternarFeito(tarefaId) {
     const { error } = await supabase

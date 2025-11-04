@@ -1,6 +1,7 @@
 import { supabase } from "../modules/config.js";
 import { alternarFeito } from "../modules/tarefas.js";
 
+
 // Carrega tarefas a fazer
 
 export async function carregarTarefas() {
@@ -20,6 +21,7 @@ export async function carregarTarefas() {
     }
 
     tbody.innerHTML = '';
+
 
     data.forEach(ta => {
         const dataFormatada = ta.data_limite
@@ -63,6 +65,17 @@ export async function carregarTarefas() {
             if (!tarefaId) continue;
             await alternarFeito(tarefaId);
         }
+
+           if (checkedBoxes.length > 0) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Tarefas atualizadas!',
+            text: `${checkedBoxes.length} tarefa(s) concluída(s).`,
+            timer: 2000,
+            showConfirmButton: false
+        });
+    }
+    
         // Recarrega tabelas após atualização
         await carregarTarefas();
         await tabelaTarefasConcluidas();
