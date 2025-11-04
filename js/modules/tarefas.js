@@ -25,15 +25,13 @@ export function dataHoje() {
       const dataLimite = document.getElementById('dataLimite');
     if (!dataLimite) {
         console.warn("Input #dataLimite não encontrado");
-        return; // agora é permitido, porque está dentro de uma função
+        return; 
     }
 
-    const hoje = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+    const hoje = new Date().toISOString().split("T")[0]; 
     dataLimite.value = hoje;
     dataLimite.setAttribute('min', hoje);
 }
-
-
 
 export async function alternarFeito(tarefaId) {
     const { error } = await supabase

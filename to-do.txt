@@ -1,5 +1,50 @@
-Mexer nos botões de tarefas (melhorar design)
-Adicionar ícone de update e delete
-Acrescentar um atributo de categorías foreing key
-Se a tarefa tiver 3 dias pra vencer amarela e vencida vermelho
-Acrescentar ou remover categorias
+
+🧩 CHECKLIST DO PROJETO TO-DO LIST
+- Aqui é um txt que organizei de coisas que faltam fazer no projeto
+
+🔐 LOGIN E AUTENTICAÇÃO
+- Criar tabela "usuários" no banco de dados
+- Criar tela de login e cadastro de novo usuário
+- Bloquear acesso a páginas sem login (áreas exclusivas)
+- Garantir que cada usuário tenha sua própria lista de tarefas
+
+⚙️ FUNÇÕES CRUD
+
+CREATE ✅  (já feito)
+
+READ🔵  
+    - Mostrar tabela com as categorias cadastradas no banco
+
+UPDATE🟠  
+    - Adicionar opção "Editar" para cada categoria  
+    - Adicionar opção "Editar" para cada tarefa  
+
+DELETE🔴  
+    - Mover o botão de deletar categorias para a tabela de categorias (criar tabela)  
+    - Adicionar botão "Excluir" individual para cada categoria  
+    - Adicionar botão "Excluir" individual para cada tarefa  
+
+
+* Em ambas as tabelas (tarefas e categorias), criar uma coluna "Opções" com os botões de ação:
+    Nome | Descrição | Opções
+    xxx  | xxxxxx    | Editar - Deletar
+    yyy  | yyyyy     | Editar - Deletar
+
+
+🧠 CONTROLE E REGRAS
+- Impedir exclusão de categorias que estejam vinculadas a tarefas
+- Adicionar filtro de tarefas por categoria
+- Exibir mensagem quando não houver tarefas (pendentes ou concluídas)
+
+
+🎨 DESIGN E LAYOUT
+- Adicinoar alguns icones 
+- mexer no header, talvez adicionar menu de navegação
+- Melhorar o design e a organização geral da interface
+- Verificar a responsividade (em diferentes tamanhos de tela)
+- Adicionar cores de destaque conforme o prazo:
+    - Amarelo → tarefas a 3 dias do vencimento
+    - Vermelho → tarefas vencidas ou no prazo final
+
+😒 OUTROS:
+- documentar funções ? (vou perguntar para o professor se precisa, pois no pdf do trabalho ele nn fala disso)

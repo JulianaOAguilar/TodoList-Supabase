@@ -4,7 +4,7 @@
 <head>
     <meta charset="pt-BR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List - Nova Tarefa</title>
+    <title>To Do List - Nova categoria</title>
     <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
@@ -21,30 +21,18 @@
 
 
     <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">
-        <h1 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova tarefa:</h1>
-        <form class="flex flex-col gap-4 w-full" id="formTarefa">
+        <h1 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova categoria:</h1>
+        <form class="flex flex-col gap-4 w-full" id="formCategoria">
 
             <!-- Nome -->
             <div class="flex items-center w-full gap-2">
-                <label for="nomeTarefa" class="w-1/4 font-medium">Nome:</label>
-                <input id="nomeTarefa" type="text" placeholder="Nome da tarefa" required autofocus
+                <label for="nomeCategoria" class="w-1/4 font-medium">Nome:</label>
+                <input id="nomeCategoria" type="text" placeholder="Nome da categoria" required autofocus
                     class="border border-blue-500 p-2 rounded-md w-3/4">
             </div>
 
-            <!-- Descrição -->
-            <div class="flex items-center w-full gap-2">
-                <label for="descricaoTarefa" class="w-1/4 font-medium">Descrição:</label>
-                <input id="descricaoTarefa" type="text" placeholder="Descrição da Tarefa"
-                    title="Informe a descrição da tarefa" class="border border-blue-500 p-2 rounded-md w-3/4">
-            </div>
-
-            <div class="flex items-center w-full gap-2">
-                <label for="dataLimite" class="w-1/4 font-medium">Data Limite:</label>
-                <input id="dataLimite" type="date" placeholder=required title="Informe a descrição do lançamento"
-                    class="border border-blue-500 p-2 rounded-md w-3/4">
-            </div>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
-                Criar nova tarefa
+                Criar nova Categoria
             </button>
 
         </form>
@@ -57,10 +45,14 @@
                     <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
                 </ul>
 
+
+                <button type="button" id="btnDelete" class="bg-red-500 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg shadow opacity-70 transition-all hover:bg-red-700 cursor-pointer">
+                deletar todas categorias
+            </button>
     </main>
 
 
-    <script type="module" src="./js/mainForm.js"></script> <!-- se estiver na pasta js -->
+    <script type="module" src="../js/mainFormCategorias.js"></script> <!-- se estiver na pasta js -->
 </body>
 
 </html>

@@ -1,10 +1,12 @@
-import { carregarTarefas } from "./ui/carregarTarefas.js";
-import {deletar} from "./modules/delete.js"
+import { carregarTarefas, tabelaTarefasConcluidas } from "./ui/carregarTarefas.js";
+import { deletarTudo } from "./modules/delete.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    deletar()
-    carregarTarefas()
+    deletarTudo('tarefas', async () => {
+        await carregarTarefas()
+        await tabelaTarefasConcluidas()
+    })
 
 })
 

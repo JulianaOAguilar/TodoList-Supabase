@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="pt-BR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List - Nova Tarefa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+
+<!-- cabeçalho -->
+<link rel="icon" href="images/icon.svg" type="image/x-icon">
+
+<body class="bg-white flex flex-col items-center justify-center text-center ">
+    <header class="bg-blue-300 p-3 w-full">
+        <h1> To do List da Xinlana </h1>
+    </header>
+
+
+    <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">
+        <h1 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova tarefa:</h1>
+        <form class="flex flex-col gap-4 w-full" id="formTarefa">
+
+            <!-- Nome -->
+            <div class="flex items-center w-full gap-2">
+                <label for="nomeTarefa" class="w-1/4 font-medium">Nome:</label>
+                <input id="nomeTarefa" type="text" placeholder="Nome da tarefa" required autofocus
+                    class="border border-blue-500 p-2 rounded-md w-3/4">
+            </div>
+
+            <!-- Descrição -->
+            <div class="flex items-center w-full gap-2">
+                <label for="descricaoTarefa" class="w-1/4 font-medium">Descrição:</label>
+                <input id="descricaoTarefa" type="text" placeholder="Descrição da Tarefa"
+                    title="Informe a descrição da tarefa" class="border border-blue-500 p-2 rounded-md w-3/4">
+            </div>
+
+            <div class="flex items-center w-full gap-2">
+                <label for="dataLimite" class="w-1/4 font-medium">Data Limite:</label>
+                <input id="dataLimite" type="date" placeholder=required title="Informe a descrição do lançamento"
+                    class="border border-blue-500 p-2 rounded-md w-3/4">
+            </div>
+
+            <div class="flex items-center w-full gap-2">
+                <label for="categoria" class="w-1/4 font-medium">Categoria:</label>
+                <select id="categoria" name="categoria"
+                    class="w-3/4 px-3 py-2 border cursor-pointer rounded-md border-blue-500 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white">
+                    <option value="">Selecione uma categoria</option>
+                    
+
+                </select>
+            </div>
+
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
+                Criar nova tarefa
+            </button>
+
+        </form>
+
+    </section>
+
+    <nav class="bg-gray-100 p-3 shadow-md mb-4 w-full max-w-lg mx-auto">
+        <ul class="flex gap-4 justify-center">
+            <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
+            <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
+            <li><a href="formCategoria.html" class="text-blue-500 hover:underline">Criar Categoria</a></li>
+        </ul>
+
+        </main>
+
+
+        <script type="module" src="../js/mainForm.js"></script> <!-- se estiver na pasta js -->
+</body>
+
+</html>

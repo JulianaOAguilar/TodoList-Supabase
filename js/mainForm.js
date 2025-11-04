@@ -2,9 +2,12 @@ import { adicionarTarefa } from './ui/tarefas.js';
 import { supabase } from './modules/config.js';
 import { carregarTarefas } from './ui/carregarTarefas.js';
 import { dataHoje } from './modules/tarefas.js';
+import { carregarCategorias } from './ui/carregarCategorias.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     dataHoje()
+    carregarCategorias()
+    
 })
 
 
