@@ -1,6 +1,6 @@
 import { SUPABASE_URL, API_KEY } from "./config.js";
 
-
+//busca as categorias do banco de dados
 export async function buscarCategorias() {
 
   const res = await fetch(`${SUPABASE_URL}/rest/v1/categorias?select=*&order=nome.asc`, {

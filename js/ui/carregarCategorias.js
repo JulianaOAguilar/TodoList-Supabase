@@ -1,5 +1,7 @@
 import { buscarCategorias } from '../modules/categorias.js'
 
+// pega as categorias e salva no select
+
 export async function carregarCategorias() {
   const select = document.getElementById('categoria');
   select.innerHTML = '';

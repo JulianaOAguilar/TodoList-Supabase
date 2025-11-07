@@ -1,10 +1,13 @@
 import { supabase } from "../modules/config.js";
 import { alternarFeito } from "../modules/tarefas.js";
 import { buscarCategorias } from "../modules/categorias.js";
+import { deletarUnitario } from "../modules/delete.js";
+import { editar } from "../modules/edit.js";
 
-// ------------------------
-// Função para carregar tarefas pendentes
-// ------------------------
+
+// Função para carregar tarefas pendentes na tabela
+
+
 export async function carregarTarefas() {
     const tbody = document.getElementById("lista-tarefas");
     const botao = document.getElementById("btnSalvar");
@@ -46,9 +49,35 @@ export async function carregarTarefas() {
             <td class="py-2 px-4 border-b text-center">
                 <input type="checkbox" data-id="${ta.id}" class="w-5 h-5 tarefa-checkbox" />
             </td>
+            <td class="py-2 border flex space-x-2 px-4">
+            <button type="submit" id="btnEditar" class="editar-btn bg-yellow-400 hover:bg-yellow-600 rounded text-white px-2 py-1 flex items-center justify-center flex-1 btnEditar" data-id="${ta.id}">
+                Editar
+              </button>
+              
+              <button id="btnExcluir" type="submit" class="deletar-btn bg-red-500 hover:bg-red-600 rounded text-white px-2 py-1 flex items-center justify-center flex-1" data-id="${ta.id}">
+                Excluir
+              </button>
+            </td>
         `;
         tbody.appendChild(tr);
+      
     });
+
+    tbody.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.deletar-btn');
+    if (btn) {
+        const id = btn.dataset.id;
+        await deletarUnitario('tarefas', id, carregarTarefas);
+    }
+
+    const btnE = e.target.closest('.editar-btn');
+    if (btnE) {
+        const id = btnE.dataset.id;
+        await editar(id, carregarTarefas);
+    }
+
+
+});
 
     // Ativa/desativa botão "Salvar" com base nos checkboxes
     const checkboxes = document.querySelectorAll('.tarefa-checkbox');
@@ -92,9 +121,9 @@ export async function carregarTarefas() {
     });
 }
 
-// ------------------------
-// Função para carregar tarefas concluídas
-// ------------------------
+
+// Função para carregar tarefas concluídas em sua tabela
+
 export async function tabelaTarefasConcluidas() {
     const tbody = document.getElementById("lista-tarefas-feitas");
     if (!tbody) return;
@@ -129,7 +158,23 @@ export async function tabelaTarefasConcluidas() {
             <td class="py-2 px-4 border-b">${mapaCategorias[String(ta.categoria_id)] || 'Não definida'}</td>
             <td class="py-2 px-4 border-b">${ta.descricao}</td>
             <td class="py-2 px-4 border-b">${dataFormatada}</td>
+                        <td class="py-2 border flex space-x-2 px-4">
+
+              <button type="submit" class="bg-red-500 deletar-btn hover:bg-red-600 rounded text-white px-2 py-1 flex items-center justify-center flex-1" id="btnExcluir" data-id="${ta.id}">
+                Excluir
+              </button>
+            </td>
         `;
-        tbody.appendChild(tr);
-    });
+        tbody.appendChild(tr);  
+});
+
+tbody.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.deletar-btn');
+  if (btn) {
+      const id = btn.dataset.id;
+      // aqui o nome da tabela correta
+      await deletarUnitario('tarefas', id, tabelaTarefasConcluidas);
+  }
+});
+
 }
