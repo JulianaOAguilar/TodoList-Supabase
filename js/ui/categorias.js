@@ -1,12 +1,26 @@
 import { supabase } from "../modules/config.js";
+import { updateCategorySelect } from "./carregarCategorias.js";
+import { updateCategoryList } from "./exibirListaCategorias.js";
 
+let formListenerAdded = false; // ✅ previne duplicação de evento
+
+// criarCategoria: cria o objeto de categoria
 export async function criarCategoria() {
   const nome = document.getElementById('nomeCategoria').value.trim();
   return { nome };
 }
 
+// adicionarCategoria: adiciona ao Supabase e atualiza a interface
 export async function adicionarCategoria() {
   const form = document.getElementById('formCategoria');
+  if (!form) {
+    console.error("Formulário 'formCategoria' não encontrado.");
+    return;
+  }
+
+  // ✅ Impede que o evento seja adicionado mais de uma vez
+  if (formListenerAdded) return;
+  formListenerAdded = true;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -24,26 +38,7 @@ export async function adicionarCategoria() {
       return;
     }
 
-    // ✅ Garante que o usuário logado será associado à categoria
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      console.error("Usuário não autenticado!");
-      await Swal.fire({
-        icon: 'error',
-        title: 'Erro de autenticação',
-        text: 'Faça login antes de adicionar categorias.',
-        timer: 2000,
-        showConfirmButton: false
-      });
-      return;
-    }
-
-    const userId = session.user.id;
-
-    // Adiciona categoria com o user_id
-    const { data, error } = await supabase
-      .from('categorias')
-      .insert([{ ...categoria, user_id: userId }]);
+    const { error } = await supabase.from('categorias').insert([categoria]);
 
     if (error) {
       console.error('Erro ao adicionar categoria:', error);
@@ -64,6 +59,10 @@ export async function adicionarCategoria() {
       });
 
       form.reset();
+
+      // 🔄 Atualiza a lista e o select automaticamente
+      await updateCategoryList();
+      await updateCategorySelect();
     }
   });
 }

@@ -10,3 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+  deletarTudo('categorias', updateCategoryList);
+  adicionarCategoria();
+  updateCategoryList();
+  updateCategorySelect();
+});
