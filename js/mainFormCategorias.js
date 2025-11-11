@@ -1,8 +1,9 @@
 import { adicionarCategoria } from "./ui/categorias.js";
 import { deletarTudo } from "./modules/delete.js";
+import { carregarCategorias } from "./ui/carregarCategorias.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  deletarTudo()
+  deletarTudo('categorias', carregarCategorias)
   adicionarCategoria()
     
 })

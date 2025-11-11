@@ -4,7 +4,13 @@ import { buscarCategorias } from '../modules/categorias.js'
 
 export async function carregarCategorias() {
   const select = document.getElementById('categoria');
+  if (!select) {
+  console.warn("Elemento 'categoria' não encontrado na página.")
+  return
+}
+
   select.innerHTML = '';
+
 
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
