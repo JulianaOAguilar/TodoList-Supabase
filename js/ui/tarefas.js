@@ -47,7 +47,7 @@ form.addEventListener('submit', async (e) => {
 
   // 🔹 Envia tarefa para o Supabase
   delete tarefa.id;
-  const { data, error } = await supabase.from('tarefas').insert([tarefa]);
+  const { data, error } = await supabase.from('tarefa').insert([tarefa]);
 
   if (error) {
     console.error('Erro ao adicionar tarefa:', error);
