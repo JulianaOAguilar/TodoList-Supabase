@@ -42,21 +42,26 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
                 Criar nova Categoria
             </button>
-    <button type="button" id="btnDelete"
-        class="bg-red-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-red-600">
-        deletar todas categorias
-    </button>
+            <button type="button" id="btnDelete"
+                class="bg-red-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-red-600">
+                Deletar todas categorias
+            </button>
 
         </form>
+        <section class="bg-gray-100 shadow-md p-3 m-3 w-full max-w-lg mx-auto">
+            <h2 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Categorias cadastradas:</h2>
+            <ul id="listaCategorias" class="list-disc text-left pl-5 space-y-2"></ul>
+        </section>
 
-    </section>
+
+        </main>
 
 
-    </main>
+        <script type="module" src="../js/ui/carregarCategorias.js"></script>
+        <script type="module" src="../js/mainFormCategorias.js"></script> <!-- se estiver na pasta js -->
 
 
-    <script type="module" src="../js/ui/carregarCategorias.js"></script>
-    <script type="module" src="../js/mainFormCategorias.js"></script> <!-- se estiver na pasta js -->
+
 </body>
 
 </html>
