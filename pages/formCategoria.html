@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List - Nova categoria</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 
 <!-- cabeçalho -->
- <link rel="icon" href="images/icon.svg" type="image/x-icon">
+<link rel="icon" href="images/icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-    <header class="bg-blue-300 p-3 w-full">
-        <h1> To do List da Xinlana </h1>
+    <header class="bg-blue-300 p-3 w-full flex justify-between items-center">
+        <h1 class="text-xl font-bold">To do List</h1>
+
+        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+            <ul class="flex gap-4">
+                <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
+                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
+                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
+            </ul>
+        </nav>
     </header>
 
 
@@ -34,21 +42,16 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
                 Criar nova Categoria
             </button>
+    <button type="button" id="btnDelete"
+        class="bg-red-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-red-600">
+        deletar todas categorias
+    </button>
 
         </form>
-        
+
     </section>
 
-<nav class="bg-gray-100 p-3 shadow-md mb-4 w-full max-w-lg mx-auto">
-                <ul class="flex gap-4 justify-center">
-                    <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
-                    <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
-                </ul>
 
-
-                <button type="button" id="btnDelete" class="bg-red-500 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg shadow opacity-70 transition-all hover:bg-red-700 cursor-pointer">
-                deletar todas categorias
-            </button>
     </main>
 
 

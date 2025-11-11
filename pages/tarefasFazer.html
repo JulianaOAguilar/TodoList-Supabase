@@ -14,12 +14,20 @@
 <link rel="icon" href="images/to-do-icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-    <header class="bg-blue-300 p-3 w-full">
-        <h1> To do List da Xinlana </h1>
+    <header class="bg-blue-300 p-3 w-full flex justify-between items-center">
+        <h1 class="text-xl font-bold">To do List</h1>
+
+        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+            <ul class="flex gap-4">
+                <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
+                <li><a href="formCategoria.html" class="text-blue-500 hover:underline">Categorias</a></li>
+                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
 
-        <!--Tarefas Para Fazer-->
+        <!--tabela de tarefas Para Fazer-->
         <section class="bg-white-100 shadow-md p-3 m-3 w-full mx-auto">
             <h2 class="font-bold p-2 my-3 bg-blue-200"> Tarefas a Fazer: </h2>
 
@@ -44,32 +52,20 @@
                         <td class="py-2 px-4 border-b text-center">
                             <input type="checkbox" class="w-5 h-5" />
                         </td>
-                        
+
                     </tr>
                 </tbody>
             </table>
-            <button type="button" disabled id="btnSalvar" class="bg-gray-400 w-1/2 text-white font-semibold py-2 mt-3 px-6 rounded-lg shadow cursor-not-allowed opacity-70 transition-all">
+            <button type="button" disabled id="btnSalvar"
+                class="bg-gray-400 w-1/2 text-white font-semibold py-2 mt-3 px-6 rounded-lg shadow cursor-not-allowed opacity-70 transition-all">
                 Salvar
             </button>
-
-          
-
         </section>
-
-        <nav class="bg-gray-100 p-3 shadow-md w-full  mx-auto">
-            <ul class="flex gap-4 justify-center">
-                <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
-                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
-            </ul>
-        </nav>
-
-
-          <button type="button" id="btnDelete" class="bg-red-500 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg shadow opacity-70 transition-all hover:bg-red-700 cursor-pointer">
-                deletar tudo
-            </button>
-
+        <button type="button" id="btnDelete"
+            class="bg-red-500 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg shadow opacity-70 transition-all hover:bg-red-700 cursor-pointer">
+            deletar tudo
+        </button>
     </main>
-
 
     <script type="module" src="../js/mainTarefasFazer.js"></script> <!-- se estiver na pasta js -->
 </body>
