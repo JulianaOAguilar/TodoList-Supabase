@@ -15,9 +15,9 @@
 <link rel="icon" href="images/icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-    <header class="bg-blue-300 p-3 w-full flex justify-between items-center">
-        <h1 class="text-xl font-bold">To do List</h1>
-
+<header class="bg-blue-300 p-3 w-full flex justify-between items-center">
+    <h1 class="text-xl font-bold">To do List</h1>
+    <div class="flex items-center gap-4">
         <nav class="bg-gray-100 p-3 shadow-md rounded-md">
             <ul class="flex gap-4">
                 <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
@@ -25,7 +25,13 @@
                 <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
             </ul>
         </nav>
-    </header>
+
+        <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition"
+        id="btnLogout">
+            Sair
+        </button>
+    </div>
+</header>
 
 
     <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">

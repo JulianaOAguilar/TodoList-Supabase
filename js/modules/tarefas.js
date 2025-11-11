@@ -3,7 +3,7 @@ import { supabase } from "./config.js";
 
 export async function buscarTarefas() {
 
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/tarefas?select=*&order=data_limite.asc`, {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/tarefa?select=*&order=data_limite.asc`, {
     headers: {
       "apikey": API_KEY,
       "Authorization": `Bearer ${API_KEY}`,
@@ -35,7 +35,7 @@ export function dataHoje() {
 
 export async function alternarFeito(tarefaId) {
     const { error } = await supabase
-        .from('tarefas')
+        .from('tarefa')
         .update({ feito: true })  // marca como feito
         .eq('id', tarefaId);
 

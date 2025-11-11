@@ -5,7 +5,7 @@ import { buscarCategorias } from "../modules/categorias.js";
 export async function editar(id, callbackRecarregar) {
 
     const { data: tarefa, error } = await supabase
-        .from("tarefas")
+        .from("tarefa")
         .select("*")
         .eq("id", id)
         .single();
@@ -77,7 +77,7 @@ export async function editar(id, callbackRecarregar) {
     if (!formValues) return;
 
     const { error: updateError } = await supabase
-        .from("tarefas")
+        .from("tarefa")
         .update({
             nome: formValues.nome,
             descricao: formValues.descricao,
