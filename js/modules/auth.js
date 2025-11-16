@@ -33,25 +33,23 @@ export function logout() {
     window.location.href='/pages/login.html'
 }
 
-export async function signup(email, password)
-{
+import { supabase } from "./config.js";
 
-    const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, { // vai para esse link usando o fetch 
-            method: 'POST', //fazer uma requisição API para obter um token
-            headers: {  
-                'apikey': API_KEY, //chave inicial
-                'content-type': 'application/json',
-                'Content-Type': 'application/json'
- // tipo de conteudo
-            },
-        body: JSON.stringify({ email, password })
-        })
-        const data = await res.json()
-        if (res.ok) {
-            localStorage.setItem('sb_token', data.access_token)
-            return true
-        }  else {
-            throw new Error(data.msg || 'Erro no SignUp')
-        }
+export async function signup(email, password) {
+  const { data, error } = await supabase.auth.signUp({
+    email: email.trim(),
+    password
+  });
 
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  // se quiser salvar token:
+  if (data.session) {
+    localStorage.setItem("sb_token", data.session.access_token);
+  }
+
+  return data;
 }
+
