@@ -1,6 +1,5 @@
-import { loginUi } from "./ui/auth.js";
-
+import { signUpUi } from "./ui/auth.js"
 
 document.addEventListener('DOMContentLoaded', () => {
-    loginUi()
+    signUpUi()
 })
