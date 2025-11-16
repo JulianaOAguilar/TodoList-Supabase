@@ -1,6 +1,5 @@
 import { supabase } from "../modules/config.js";
-import { updateCategorySelect } from "./carregarCategorias.js";
-import { updateCategoryList } from "./exibirListaCategorias.js";
+import { atualizarListaCategoria } from "./exibirListaCategorias.js";
 
 let formListenerAdded = false; // ✅ previne duplicação de evento
 
@@ -61,8 +60,7 @@ export async function adicionarCategoria() {
       form.reset();
 
       // 🔄 Atualiza a lista e o select automaticamente
-      await updateCategoryList();
-      await updateCategorySelect();
+      await atualizarListaCategoria();
     }
   });
 }
