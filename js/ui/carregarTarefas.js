@@ -130,8 +130,8 @@ export async function tabelaTarefasConcluidas() {
     return;
   }
 
-  const { data: tarefas, error } = await supabase
-    .from('tarefas')
+  const { data: tarefa, error } = await supabase
+    .from('tarefa')
     .select('*')
     .eq('feito', true)
     .eq('user_id', session.user.id)
@@ -150,7 +150,7 @@ export async function tabelaTarefasConcluidas() {
     mapaCategorias[String(cat.id)] = cat.nome;
   });
 
-  tarefas.forEach(ta => {
+  tarefa.forEach(ta => {
     const dataFormatada = ta.data_limite
       ? new Date(ta.data_limite).toLocaleDateString('pt-BR', { timeZone: 'UTC' })
       : '';
