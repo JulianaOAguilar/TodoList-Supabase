@@ -6,6 +6,7 @@ import { carregarTarefas } from "./ui/carregarTarefas.js";
 document.addEventListener('DOMContentLoaded', () => {
     deletarTudo('tarefa', carregarTarefas)
     logoutUi()
+    carregarTarefas()
 })
 
 

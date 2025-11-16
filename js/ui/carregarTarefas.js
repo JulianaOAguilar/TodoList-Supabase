@@ -174,7 +174,7 @@ export async function tabelaTarefasConcluidas() {
     const btn = e.target.closest('.deletar-btn');
     if (btn) {
       const id = btn.dataset.id;
-      await deletarUnitario('tarefas', id, tabelaTarefasConcluidas);
+      await deletarUnitario('tarefa', id, tabelaTarefasConcluidas);
     }
   });
 }

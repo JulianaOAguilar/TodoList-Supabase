@@ -26,6 +26,3 @@ export async function carregarCategorias() {
     select.appendChild(option);
   });
 }
-
-// Atualiza o <select> com as categorias disponíveis
-
