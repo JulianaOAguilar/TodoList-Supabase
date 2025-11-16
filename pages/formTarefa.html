@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 
@@ -15,19 +16,21 @@
 <link rel="icon" href="images/icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-<header class="bg-blue-300 p-3 w-full flex justify-between items-center">
+<header class="bg-violet-300 p-3 w-full flex justify-between items-center">
     <h1 class="text-xl font-bold">To do List</h1>
     <div class="flex items-center gap-4">
         <nav class="bg-gray-100 p-3 shadow-md rounded-md">
             <ul class="flex gap-4">
-                <li><a href="formCategoria.html" class="text-blue-500 hover:underline">Categorias</a></li>
-                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
-                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
+                <li><a href="formCategoria.html" class="text-blue-500 hover:underline"><span class="material-symbols-outlined">category</span>Categorias</a></li>
+                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline"><span class="material-symbols-outlined">pending_actions</span>
+                        Tarefas a Fazer</a></li>
+                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline"><span
+                                class="material-symbols-outlined">favorite</span>Tarefas Feitas</a></li>
             </ul>
         </nav>
 
         <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition"
-        id="btnLogout">
+        id="btnLogout"><span class="material-symbols-outlined">logout</span>
             Sair
         </button>
     </div>
@@ -36,33 +39,33 @@
 
     <main>
         <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">
-            <h1 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova tarefa:</h1>
+            <h1 class="bg-fuchsia-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova tarefa:</h1>
             <form class="flex flex-col gap-4 w-full" id="formTarefa">
 
                 <!-- Nome -->
                 <div class="flex items-center w-full gap-2">
                     <label for="nomeTarefa" class="w-1/4 font-medium">Nome:</label>
                     <input id="nomeTarefa" type="text" placeholder="Nome da tarefa" required autofocus
-                        class="border border-blue-500 p-2 rounded-md w-3/4">
+                        class="border border-cyan-500 p-2 rounded-md w-3/4">
                 </div>
 
                 <!-- Descrição -->
                 <div class="flex items-center w-full gap-2">
                     <label for="descricaoTarefa" class="w-1/4 font-medium">Descrição:</label>
                     <input id="descricaoTarefa" type="text" placeholder="Descrição da Tarefa"
-                        title="Informe a descrição da tarefa" class="border border-blue-500 p-2 rounded-md w-3/4">
+                        title="Informe a descrição da tarefa" class="border border-cyan-500 p-2 rounded-md w-3/4">
                 </div>
 
                 <div class="flex items-center w-full gap-2">
                     <label for="dataLimite" class="w-1/4 font-medium">Data Limite:</label>
                     <input id="dataLimite" type="date" placeholder=required title="Informe a descrição do lançamento"
-                        class="border border-blue-500 p-2 rounded-md w-3/4">
+                        class="border border-cyan-500 p-2 rounded-md w-3/4">
                 </div>
 
                 <div class="flex items-center w-full gap-2">
                     <label for="categoria" class="w-1/4 font-medium">Categoria:</label>
                     <select id="categoria" name="categoria"
-                        class="w-3/4 px-3 py-2 border cursor-pointer rounded-md border-blue-500 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white">
+                        class="w-3/4 px-3 py-2 border cursor-pointer rounded-md border-cyan-500 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 bg-white">
                         <option value="">Selecione uma categoria</option>
 
 
@@ -71,7 +74,7 @@
 
 
                 <button type="submit"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
+                    class="bg-teal-300 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-teal-400">
                     Criar nova tarefa
                 </button>
 

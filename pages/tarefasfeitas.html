@@ -9,32 +9,36 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="icon" href="images/done.icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body class="bg-white flex flex-col items-center justify-center text-center">
-<header class="bg-blue-300 p-3 w-full flex justify-between items-center">
-    <h1 class="text-xl font-bold">To do List</h1>
-    <div class="flex items-center gap-4">
-        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
-            <ul class="flex gap-4">
-                <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
-                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
-                <li><a href="formCategoria.html" class="text-blue-500 hover:underline">Categorias</a></li>
-            </ul>
-        </nav>
+    <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
+        <h1 class="text-xl font-bold">To do List</h1>
+        <div class="flex items-center gap-4">
+            <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+                <ul class="flex gap-4">
+                    <li><a href="formTarefa.html" class="text-blue-500 hover:underline"><span
+                                class="material-symbols-outlined">add_to_queue</span>Adicionar Tarefa</a></li>
+                    <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline"><span
+                                class="material-symbols-outlined">pending_actions</span>Tarefas a Fazer</a></li>
+                    <li><a href="formCategoria.html" class="text-blue-500 hover:underline"><span
+                                class="material-symbols-outlined">category</span>Categorias</a></li>
+                </ul>
+            </nav>
 
-        <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition"
-        id="btnLogout">
-            Sair
-        </button>
-    </div>
-</header>
+            <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition" id="btnLogout"><span
+                    class="material-symbols-outlined">logout</span>
+                Sair
+            </button>
+        </div>
+    </header>
     <main>
         <!-- tabela de Tarefas Feitas -->
         <section class="bg-white shadow-md p-3 m-3 w-full mx-auto">
-            <h2 class="font-bold p-2 my-3 bg-blue-200">Tarefas Feitas:</h2>
+            <h2 class="font-bold p-2 my-3 bg-fuchsia-200">Tarefas Feitas:</h2>
             <table class="min-w-full bg-white border border-gray-200" id="TarefasFeitas">
-                <thead class="bg-gray-100">
+                <thead class="bg-rose-100">
                     <tr>
                         <th class="py-2 px-4 border-b">Nome</th>
                         <th class="py-2 px-4 border-b">Categoria</th>
@@ -58,16 +62,17 @@
             </table>
 
             <button type="button" disabled id="btnSalvar"
-                class="bg-gray-400 w-1/2 text-white font-semibold py-2 mt-3 px-6 rounded-lg shadow cursor-not-allowed opacity-70 transition-all">
+                class="bg-teal-400 w-1/2 text-white font-semibold py-2 mt-3 px-6 rounded-lg shadow cursor-not-allowed transition-all hover:bg-teal-500 cursor-pointer">
                 Salvar
             </button>
         </section>
 
         <button type="button" id="btnDelete"
-            class="bg-red-500 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg shadow opacity-70 transition-all hover:bg-red-700 cursor-pointer">
+            class="bg-rose-400 w-1/2 text-white font-semibold py-2 mt-3 px-6 mt-9 rounded-lg transition-all hover:bg-rose-500 cursor-pointer">
             Deletar Tudo
         </button>
     </main>
     <script type="module" src="../js/mainTarefasFeitas.js"></script>
 </body>
+
 </html>
