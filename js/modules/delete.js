@@ -1,5 +1,6 @@
 import { supabase } from "../modules/config.js";
 import { carregarTarefas, tabelaTarefasConcluidas } from "../ui/carregarTarefas.js";
+import { atualizarListaCategoria } from "../ui/exibirListaCategorias.js";
 
 //deletar unitariamente cada item
 export async function deletarUnitario(nomeTabela, id, callbackRecarregar) {
@@ -99,6 +100,5 @@ export async function deletarTudo(nomeTabela, callbackRecarregar) {
     }
   });
   // recarrega tabela
-  await carregarTarefas();
-  await tabelaTarefasConcluidas();
+
 }

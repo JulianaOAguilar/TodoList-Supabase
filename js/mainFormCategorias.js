@@ -7,6 +7,7 @@ import { atualizarListaCategoria } from "./ui/exibirListaCategorias.js";
 document.addEventListener('DOMContentLoaded', () => {
 
   deletarTudo('categorias', carregarCategorias)
+  deletarTudo('categorias', atualizarListaCategoria)
   adicionarCategoria()
   logoutUi()
   atualizarListaCategoria()
