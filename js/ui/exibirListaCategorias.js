@@ -1,7 +1,8 @@
 // ui/exibirListaCategorias.js
-import { fetchCategories } from "../modules/categorias.js";
+import { buscarCategorias } from "../modules/categorias.js";
 
-export async function updateCategoryList() {
+export async function atualizarListaCategoria() {
+  
   const ul = document.getElementById('listaCategorias');
   if (!ul) {
     console.warn("Elemento 'listaCategorias' não encontrado na página.");
@@ -10,7 +11,8 @@ export async function updateCategoryList() {
 
   ul.innerHTML = ''; // limpa o conteúdo anterior
 
-  const categorias = await fetchCategories();
+  const categorias = await buscarCategorias();
+
 
   if (categorias.length === 0) {
     const li = document.createElement('li');

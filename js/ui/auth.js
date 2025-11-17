@@ -79,12 +79,12 @@ export function signUpUi() {
             await Swal.fire({
                 icon: 'success',
                 title: 'Cadastro bem sucedido!',
-                text: 'Redirecionando para o formulário...',
+                text: 'Redirecionando para area de login...',
                 showConfirmButton: false, 
                 timer: 1500
             });
 
-            window.location.href = '/pages/formTarefa.html';
+            window.location.href = '/pages/login.html';
         } catch (err) {
             console.error("Erro ao fazer login:", err);
             Swal.fire({

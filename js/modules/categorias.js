@@ -27,24 +27,24 @@ export async function buscarCategorias() {
 }
 
 export async function fetchCategories() {
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/categorias?select=*&order=nome.asc`, {
-      headers: {
-        "apikey": API_KEY,
-        "Authorization": `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-    });
+  const { data: { session } } = await supabase.auth.getSession();
 
-    if (!res.ok) {
-      console.error("Erro ao buscar categorias:", res.status, res.statusText);
-      return [];
-    }
-
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.error("Erro de rede ao buscar categorias:", err);
+  if (!session) {
+    console.warn("Usuário não autenticado");
     return [];
   }
+
+  const { data, error } = await supabase
+    .from("categorias")
+    .select("*")
+    .eq("user_id", session.user.id)
+    .order("nome", { ascending: true });
+
+  if (error) {
+    console.error("Erro ao buscar categorias:", error);
+    return [];
+  }
+
+  return data;
 }
+
