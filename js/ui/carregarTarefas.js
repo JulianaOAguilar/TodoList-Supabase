@@ -43,44 +43,55 @@ export async function carregarTarefas() {
 
   // Renderiza cada tarefa
   tarefas.forEach((ta) => {
-    const dataFormatada = ta.data_limite
-      ? new Date(ta.data_limite).toLocaleDateString("pt-BR", { timeZone: "UTC" })
-      : "";
+  const dataFormatada = ta.data_limite
+    ? new Date(ta.data_limite).toLocaleDateString("pt-BR", { timeZone: "UTC" })
+    : "";
 
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td class="py-2 px-4 border-b">${ta.nome}</td>
+  const tr = document.createElement("tr");
 
-      <td class="py-2 px-4 border-b">
-        ${mapaCategorias[String(ta.categoria_id)] || "Não definida"}
-      </td>
+  // Verifica se a data_limite é hoje
+  let alertaHoje = false;
+  if (ta.data_limite) {
+    const hoje = new Date();
+    const limite = new Date(ta.data_limite);
+    alertaHoje =
+      limite.getUTCFullYear() === hoje.getUTCFullYear() &&
+      limite.getUTCMonth() === hoje.getUTCMonth() &&
+      limite.getUTCDate() === hoje.getUTCDate();
+  }
 
-      <td class="py-2 px-4 border-b max-w-[150px]">
-        <span class="block truncate" title="${ta.descricao || ""}">
-          ${ta.descricao || ""}
-        </span>
-      </td>
+  tr.innerHTML = `
+    <td class="py-2 px-4 border-b ${alertaHoje ? "bg-rose-50" : ""}">${ta.nome}</td>
 
-      <td class="py-2 px-4 border-b">${dataFormatada}</td>
+    <td class="py-2 px-4 border-b ${alertaHoje ? "bg-rose-50" : ""}">
+      ${mapaCategorias[String(ta.categoria_id)] || "Não definida"}
+    </td>
 
-      <td class="py-2 px-4 border-b text-center">
-        <input type="checkbox" data-id="${ta.id}" class="w-5 h-5 tarefa-checkbox"/>
-      </td>
+    <td class="py-2 px-4 border-b max-w-[150px] ${alertaHoje ? "bg-rose-50" : ""}">
+      <span class="block truncate" title="${ta.descricao || ""}">
+        ${ta.descricao || ""}
+      </span>
+    </td>
 
-      <td class="py-2 border px-4 flex space-x-2">
-        <button class="editar-btn bg-teal-300 hover:bg-teal-400 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
-          Editar
-        </button>
+    <td class="py-2 px-4 border-b ${alertaHoje ? " text-red-500 bg-rose-50" : ""}">${dataFormatada}</td>
 
-        <button class="deletar-btn bg-rose-400 hover:bg-rose-500 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
-          Excluir
-        </button>
-      </td>
-    `;
+    <td class="py-2 px-4 border-b text-center ${alertaHoje ? "bg-rose-50" : ""}">
+      <input type="checkbox" data-id="${ta.id}" class="w-5 h-5 tarefa-checkbox"/>
+    </td>
 
-    tbody.appendChild(tr);
-  });
+    <td class="py-2 border px-4 flex space-x-2 ${alertaHoje ? "bg-rose-50" : ""}">
+      <button class="editar-btn bg-teal-300 hover:bg-teal-400 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
+        Editar
+      </button>
 
+      <button class="deletar-btn bg-rose-400 hover:bg-rose-500 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
+        Excluir
+      </button>
+    </td>
+  `;
+
+  tbody.appendChild(tr);
+});
   // Eventos: excluir e editar
   tbody.addEventListener("click", async (e) => {
     const del = e.target.closest(".deletar-btn");
