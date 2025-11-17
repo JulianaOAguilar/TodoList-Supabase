@@ -16,25 +16,41 @@
 <link rel="icon" href="images/icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-<header class="bg-violet-300 p-3 w-full flex justify-between items-center">
-    <h1 class="text-xl font-bold">To do List</h1>
-    <div class="flex items-center gap-4">
-        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
-            <ul class="flex gap-4">
-                <li><a href="formCategoria.html" class="text-blue-500 hover:underline"><span class="material-symbols-outlined">category</span>Categorias</a></li>
-                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline"><span class="material-symbols-outlined">pending_actions</span>
-                        Tarefas a Fazer</a></li>
-                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline"><span
-                                class="material-symbols-outlined">favorite</span>Tarefas Feitas</a></li>
-            </ul>
-        </nav>
+    <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
+        <h1 class="text-xl font-bold">To do List</h1>
+        <div class="flex items-center gap-4">
+            <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+                <ul class="flex gap-4">
+                    <li>
+                        <a href="formCategoria.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">category</span>
+                            Categorias
+                        </a>
+                    </li>
 
-        <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition"
-        id="btnLogout"><span class="material-symbols-outlined">logout</span>
-            Sair
-        </button>
-    </div>
-</header>
+                    <li>
+                        <a href="tarefasFazer.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">pending_actions</span>
+                            Tarefas a Fazer
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tarefasfeitas.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">favorite</span>
+                            Tarefas Feitas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+<button
+    class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition flex items-center gap-1"
+    id="btnLogout">
+    <span class="material-symbols-outlined align-middle">logout</span>
+    Sair
+</button>
+        </div>
+    </header>
 
 
     <main>
@@ -67,25 +83,13 @@
                     <select id="categoria" name="categoria"
                         class="w-3/4 px-3 py-2 border cursor-pointer rounded-md border-cyan-500 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 bg-white">
                         <option value="">Selecione uma categoria</option>
-
-
                     </select>
                 </div>
 
 
-                <button type="submit"
-                    class="bg-teal-300 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-teal-400">
-                    Criar nova tarefa
-                </button>
-
             </form>
-
         </section>
-
-
     </main>
-
-
     <script type="module" src="../js/mainForm.js"></script> <!-- se estiver na pasta js -->
 </body>
 

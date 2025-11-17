@@ -18,17 +18,30 @@
         <div class="flex items-center gap-4">
             <nav class="bg-gray-100 p-3 shadow-md rounded-md">
                 <ul class="flex gap-4">
-                    <li><a href="formTarefa.html" class="text-blue-500 hover:underline"><span
-                                class="material-symbols-outlined">add_to_queue</span>Adicionar Tarefa</a></li>
-                    <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline"><span
-                                class="material-symbols-outlined">pending_actions</span>Tarefas a Fazer</a></li>
-                    <li><a href="formCategoria.html" class="text-blue-500 hover:underline"><span
-                                class="material-symbols-outlined">category</span>Categorias</a></li>
+                    <li>
+                        <a href="formTarefa.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">add_to_queue</span>
+                            Adicionar Tarefa
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tarefasFazer.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">pending_actions</span>
+                            Tarefas a Fazer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="formCategoria.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">category</span>
+                            Categorias
+                        </a>
+                    </li>
                 </ul>
             </nav>
-
-            <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition" id="btnLogout"><span
-                    class="material-symbols-outlined">logout</span>
+            <button
+                class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition flex items-center gap-1"
+                id="btnLogout">
+                <span class="material-symbols-outlined align-middle">logout</span>
                 Sair
             </button>
         </div>
