@@ -42,44 +42,7 @@ export async function carregarTarefas() {
     mapaCategorias[String(cat.id)] = cat.nome;
   });
 
-  tarefas.forEach((ta) => {
-    const dataFormatada = ta.data_limite
-      ? new Date(ta.data_limite).toLocaleDateString("pt-BR", { timeZone: "UTC" })
-      : "";
-
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td class="py-2 px-4 border-b">${ta.nome}</td>
-
-      <td class="py-2 px-4 border-b">
-        ${mapaCategorias[String(ta.categoria_id)] || "Não definida"}
-      </td>
-
-      <td class="py-2 px-4 border-b max-w-[150px]">
-        <span class="block truncate" title="${ta.descricao}">
-          ${ta.descricao || ""}
-        </span>
-      </td>
-
-      <td class="py-2 px-4 border-b">${dataFormatada}</td>
-
-      <td class="py-2 px-4 border-b text-center">
-        <input type="checkbox" data-id="${ta.id}" class="w-5 h-5 tarefa-checkbox"/>
-      </td>
-
-      <td class="py-2 border px-4 flex space-x-2">
-        <button class="editar-btn bg-yellow-400 hover:bg-yellow-600 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
-          Editar
-        </button>
-
-        <button class="deletar-btn bg-red-500 hover:bg-red-600 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
-          Excluir
-        </button>
-      </td>
-    `;
-
-    tbody.appendChild(tr);
-  });
+  
 
   // Eventos: excluir e editar
   tbody.addEventListener("click", async (e) => {
