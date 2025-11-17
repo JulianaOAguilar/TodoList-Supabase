@@ -49,36 +49,31 @@
 </button>
         </div>
     </header>
-<main class="w-full max-w-5xl mx-auto p-6">
 
-    <div class="flex flex-col md:flex-row gap-6">
 
-        <!-- FORMULÁRIO -->
-        <section class="bg-white shadow-md p-4 w-full md:w-1/2 rounded">
-            <h1 class="bg-fuchsia-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova categoria:</h1>
+    <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">
+        <h1 class="bg-fuchsia-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova categoria:</h1>
+        <form class="flex flex-col gap-4 w-full" id="formCategoria">
 
-            <form class="flex flex-col gap-4 w-full" id="formCategoria">
+            <!-- Nome -->
+            <div class="flex items-center w-full gap-2">
+                <label for="nomeCategoria" class="w-1/4 font-medium">Nome:</label>
+                <input id="nomeCategoria" type="text" placeholder="Nome da categoria" required autofocus
+                    class="border border-cyan-500 p-2 rounded-md w-3/4">
+            </div>
 
-                <!-- Nome -->
-                <div class="flex items-center w-full gap-2">
-                    <label for="nomeCategoria" class="w-1/4 font-medium">Nome:</label>
-                    <input id="nomeCategoria" type="text" placeholder="Nome da categoria" required autofocus
-                        class="border border-cyan-500 p-2 rounded-md w-3/4">
-                </div>
+            <button type="submit" class="bg-teal-300 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-teal-400">
+                Criar nova Categoria
+            </button>
+            <button type="button" id="btnDelete"
+                class="bg-rose-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-rose-500">
+                Deletar todas categorias
+            </button>
 
-<div class="flex gap-4 my-5 w-full justify-center">
-    <button type="submit"
-        class="bg-teal-300 text-white px-4 py-2 rounded-md w-1/2 hover:bg-teal-400">
-        Criar nova Categoria
-    </button>
-
-    <button type="button" id="btnDelete"
-        class="bg-rose-400 text-white px-4 py-2 rounded-md w-1/2 hover:bg-rose-500">
-        Deletar todas categorias
-    </button>
-</div>
-
-            </form>
+        </form>
+        <section class="bg-rose-100 shadow-md p-3 m-3 w-full max-w-lg mx-auto">
+            <h2 class="bg-rose-100 p-2 rounded mb-4 text-center font-bold">Categorias cadastradas:</h2>
+            <ul id="listaCategorias" class="list-disc text-left pl-5 space-y-2"></ul>
         </section>
 
         <!-- LISTA DE CATEGORIAS -->
