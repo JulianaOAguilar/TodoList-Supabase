@@ -8,6 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+
 </head>
 
 
@@ -15,47 +18,61 @@
 <link rel="icon" href="images/icon.svg" type="image/x-icon">
 
 <body class="bg-white flex flex-col items-center justify-center text-center ">
-<header class="bg-blue-300 p-3 w-full flex justify-between items-center">
-    <h1 class="text-xl font-bold">To do List</h1>
-    <div class="flex items-center gap-4">
-        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
-            <ul class="flex gap-4">
-                <li><a href="formTarefa.html" class="text-blue-500 hover:underline">Adicionar Tarefa</a></li>
-                <li><a href="tarefasFazer.html" class="text-blue-500 hover:underline">Tarefas a Fazer</a></li>
-                <li><a href="tarefasfeitas.html" class="text-blue-500 hover:underline">Tarefas Feitas</a></li>
-            </ul>
-        </nav>
-
-        <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition"
-        id="btnLogout">
-            Sair
-        </button>
-    </div>
-</header>
+    <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
+        <h1 class="text-xl font-bold">To do List</h1>
+        <div class="flex items-center gap-4">
+            <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+                <ul class="flex gap-4">
+                    <li>
+                        <a href="formTarefa.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">add_to_queue</span>
+                            Adicionar Tarefa
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tarefasFazer.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">pending_actions</span>
+                            Tarefas a Fazer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tarefasfeitas.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                            <span class="material-symbols-outlined align-middle">favorite</span>
+                            Tarefas Feitas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+<button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition flex items-center gap-1" id="btnLogout">
+    <span class="material-symbols-outlined align-middle">logout</span>
+    Sair
+</button>
+        </div>
+    </header>
 
 
     <section class="bg-white shadow-md p-3 m-3 w-full max-w-lg mx-auto">
-        <h1 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova categoria:</h1>
+        <h1 class="bg-fuchsia-200 p-2 rounded mb-4 text-center font-bold">Adicionar nova categoria:</h1>
         <form class="flex flex-col gap-4 w-full" id="formCategoria">
 
             <!-- Nome -->
             <div class="flex items-center w-full gap-2">
                 <label for="nomeCategoria" class="w-1/4 font-medium">Nome:</label>
                 <input id="nomeCategoria" type="text" placeholder="Nome da categoria" required autofocus
-                    class="border border-blue-500 p-2 rounded-md w-3/4">
+                    class="border border-cyan-500 p-2 rounded-md w-3/4">
             </div>
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-blue-600">
+            <button type="submit" class="bg-teal-300 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-teal-400">
                 Criar nova Categoria
             </button>
             <button type="button" id="btnDelete"
-                class="bg-red-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-red-600">
+                class="bg-rose-400 text-white px-4 py-2 rounded-md w-1/2 mx-auto hover:bg-rose-500">
                 Deletar todas categorias
             </button>
 
         </form>
-        <section class="bg-gray-100 shadow-md p-3 m-3 w-full max-w-lg mx-auto">
-            <h2 class="bg-blue-200 p-2 rounded mb-4 text-center font-bold">Categorias cadastradas:</h2>
+        <section class="bg-rose-100 shadow-md p-3 m-3 w-full max-w-lg mx-auto">
+            <h2 class="bg-rose-100 p-2 rounded mb-4 text-center font-bold">Categorias cadastradas:</h2>
             <ul id="listaCategorias" class="list-disc text-left pl-5 space-y-2"></ul>
         </section>
 
