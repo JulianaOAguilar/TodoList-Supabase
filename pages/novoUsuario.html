@@ -13,23 +13,24 @@
 </head>
 
 
-<body class="bg-green-100 min-h-screen flex flex-col items-center justify-center">
+<body class="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center" style="background-image: url('../images/checklist.jpg')">
 
-    <form id="formRegister">
-        <div class="bg-green-50 shadow border p-4 flex flex-col items-center justify-center rounded mt-10">
+<form id="formRegister">
+        
+        <div class="bg-rose-200 shadow-lg border p-4 flex flex-col items-center justify-center rounded mt-10">
           
+            <div class="bg-rose-100 p-6 rounded shadow w-80">
+            <img src="../images/people" alt="login" class="w-28 h-28 object-contain block mx-auto my-5">
 
-            <div class="bg-white p-6 rounded shadow w-80">
-            
-                <h1 class="text-xl mt-4 mb-4 text-center">Criar usuário</h1>
-                <input id="email" type="email" placeholder="Email" class="border p-2 w-full mb-2"
+                <h1 class="text-xl mt-4 mb-4 text-center"> Novo Usuário </h1>
+                <input id="email" type="email" placeholder="Email" class="border rounded-lg p-2 w-full mb-2 border-cyan-500"
                     title="Digite seu email aqui" autofocus>
-                <input id="password" type="password" placeholder="Senha do sistema" class="border p-2 w-full mb-2"
+                <input id="password" type="password" placeholder="Senha" class="border rounded-lg p-2 w-full mb-2 border-cyan-500"
                     title="Digite sua senha aqui">
-                <button id="btnLogin" type="submit" class="bg-green-700 text-white px-4 py-2 mt-2 w-full">Cadastrar</button>
+                <button id="btnRegister" type="submit" class="bg-teal-400 text-white rounded-lg px-4 py-2 mt-2 w-full hover:bg-teal-500">Cadastrar</button>
     </form>
     </div>
-    <a href="login.html" class="block text-center mt-3 text-sm text-green-600 ">Ja tenho conta</a>
+    <a href="login.html" class="block text-center mt-3 text-sm text-sky-800 hover:text-sky-950"">Ja tenho conta</a>
     </div>
 </body>
 <script src="../js/mainRegister.js" type="module"></script>

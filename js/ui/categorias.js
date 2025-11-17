@@ -1,12 +1,46 @@
 import { supabase } from "../modules/config.js";
+import { carregarCategorias } from "./carregarCategorias.js";
 import { atualizarListaCategoria } from "./exibirListaCategorias.js";
 
-let formListenerAdded = false; // ✅ previne duplicação de evento
+let formListenerAdded = false; // previne duplicação de evento
+
+// Categorias pré-definidas
+const categoriasPadrao = ["Trabalho", "Faculdade", "Casa"];
 
 // criarCategoria: cria o objeto de categoria
 export async function criarCategoria() {
   const nome = document.getElementById('nomeCategoria').value.trim();
   return { nome };
+}
+
+// inserirCategoriasPadrao: insere categorias padrão se ainda não existirem
+export async function inserirCategoriasPadrao(userId) {
+  // Buscar apenas categorias padrão já existentes
+  const { data: categoriasExistentes, error } = await supabase
+    .from("categorias")
+    .select("nome")
+    .eq("user_id", userId)
+    .in("nome", categoriasPadrao);
+
+  if (error) {
+    console.error("Erro ao buscar categorias existentes:", error);
+    return;
+  }
+
+  const nomesExistentes = categoriasExistentes.map(cat => cat.nome.toLowerCase());
+
+  // Filtra apenas as que ainda não existem
+  const novasCategorias = categoriasPadrao.filter(
+    nome => !nomesExistentes.includes(nome.toLowerCase())
+  );
+
+  if (novasCategorias.length > 0) {
+    const { error: erroInsert } = await supabase
+      .from("categorias")
+      .insert(novasCategorias.map(nome => ({ nome, user_id: userId })));
+
+    if (erroInsert) console.error("Erro ao inserir categorias padrão:", erroInsert);
+  }
 }
 
 // adicionarCategoria: adiciona ao Supabase e atualiza a interface
@@ -17,13 +51,28 @@ export async function adicionarCategoria() {
     return;
   }
 
-  // Impede que o evento seja adicionado mais de uma vez
   if (formListenerAdded) return;
   formListenerAdded = true;
 
+  // 🔎 PEGAR USER LOGADO
+  const { data: sessionData } = await supabase.auth.getSession();
+  const userId = sessionData?.session?.user?.id;
+
+  if (!userId) {
+    console.error("Nenhum usuário logado.");
+    return;
+  }
+
+  // Inserir categorias padrão (somente as que não existem)
+  await inserirCategoriasPadrao(userId);
+
+  // Atualiza a lista inicial de categorias
+  await atualizarListaCategoria();
+  await carregarCategorias();
+
+  // Listener do form
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const categoria = await criarCategoria();
 
     if (!categoria.nome) {
@@ -37,16 +86,6 @@ export async function adicionarCategoria() {
       return;
     }
 
-    // 🔎 PEGAR USER LOGADO
-    const { data: sessionData } = await supabase.auth.getSession();
-    const userId = sessionData?.session?.user?.id;
-
-    if (!userId) {
-      console.error("Nenhum usuário logado.");
-      return;
-    }
-
-    // 🔎 BUSCAR CATEGORIAS EXISTENTES DO USUÁRIO
     const { data: categoriasExistentes, error: erroBusca } = await supabase
       .from("categorias")
       .select("nome")
@@ -57,7 +96,6 @@ export async function adicionarCategoria() {
       return;
     }
 
-    // ❗ VALIDAÇÃO DE NOME DUPLICADO
     const nomeJaExiste = categoriasExistentes.some(cat =>
       cat.nome.toLowerCase() === categoria.nome.toLowerCase()
     );
@@ -70,14 +108,10 @@ export async function adicionarCategoria() {
         timer: 2000,
         showConfirmButton: false
       });
-      return; // impede o insert
+      return;
     }
 
-    // 🟢 Se passou pela validação -> Inserir nova categoria
-    const { error } = await supabase.from('categorias').insert([{
-      nome: categoria.nome,
-      user_id: userId
-    }]);
+    const { error } = await supabase.from('categorias').insert([{ nome: categoria.nome, user_id: userId }]);
 
     if (error) {
       console.error('Erro ao adicionar categoria:', error);
@@ -96,11 +130,9 @@ export async function adicionarCategoria() {
         timer: 1500,
         showConfirmButton: false
       });
-
       form.reset();
-
-      // Atualiza a lista e select
       await atualizarListaCategoria();
+      await carregarCategorias();
     }
   });
 }

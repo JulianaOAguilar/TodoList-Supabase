@@ -11,5 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
   deletarTudo('categorias', atualizarListaCategoria)
   adicionarCategoria()
   logoutUi()
-  atualizarListaCategoria()
 })
