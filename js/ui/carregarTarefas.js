@@ -186,7 +186,7 @@ export async function tabelaTarefasConcluidas() {
       <td class="py-2 px-4 border-b">${dataFormatada}</td>
 
       <td class="py-2 border px-4">
-        <button class="deletar-btn bg-red-500 hover:bg-red-600 rounded text-white px-2 py-1 w-full" data-id="${ta.id}">
+        <button class="deletar-btn bg-rose-400 hover:bg-rose-500 rounded text-white px-2 py-1 w-full" data-id="${ta.id}">
           Excluir
         </button>
       </td>
