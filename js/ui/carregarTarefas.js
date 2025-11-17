@@ -23,7 +23,6 @@ export async function carregarTarefas() {
 
   tbody.innerHTML = "";
 
-  // 👉 Se não existir nenhuma tarefa
   if (!tarefas || tarefas.length === 0) {
     tbody.innerHTML = `
       <tr>
@@ -42,7 +41,45 @@ export async function carregarTarefas() {
     mapaCategorias[String(cat.id)] = cat.nome;
   });
 
-  
+  // Renderiza cada tarefa
+  tarefas.forEach((ta) => {
+    const dataFormatada = ta.data_limite
+      ? new Date(ta.data_limite).toLocaleDateString("pt-BR", { timeZone: "UTC" })
+      : "";
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="py-2 px-4 border-b">${ta.nome}</td>
+
+      <td class="py-2 px-4 border-b">
+        ${mapaCategorias[String(ta.categoria_id)] || "Não definida"}
+      </td>
+
+      <td class="py-2 px-4 border-b max-w-[150px]">
+        <span class="block truncate" title="${ta.descricao || ""}">
+          ${ta.descricao || ""}
+        </span>
+      </td>
+
+      <td class="py-2 px-4 border-b">${dataFormatada}</td>
+
+      <td class="py-2 px-4 border-b text-center">
+        <input type="checkbox" data-id="${ta.id}" class="w-5 h-5 tarefa-checkbox"/>
+      </td>
+
+      <td class="py-2 border px-4 flex space-x-2">
+        <button class="editar-btn bg-teal-300 hover:bg-teal-400 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
+          Editar
+        </button>
+
+        <button class="deletar-btn bg-rose-400 hover:bg-rose-500 rounded text-white px-2 py-1 flex-1" data-id="${ta.id}">
+          Excluir
+        </button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
 
   // Eventos: excluir e editar
   tbody.addEventListener("click", async (e) => {
@@ -60,13 +97,13 @@ export async function carregarTarefas() {
       const algumMarcado = Array.from(checkboxes).some((c) => c.checked);
       botao.disabled = !algumMarcado;
 
-if (algumMarcado) {
-  botao.classList.remove("bg-teal-200", "cursor-not-allowed", "opacity-70");
-  botao.classList.add("bg-teal-300", "hover:bg-teal-400");
-} else {
-  botao.classList.add("bg-teal-200", "cursor-not-allowed", "opacity-70");
-  botao.classList.remove("bg-teal-300", "hover:bg-teal-400");
-}
+      if (algumMarcado) {
+        botao.classList.remove("bg-teal-200", "cursor-not-allowed", "opacity-70");
+        botao.classList.add("bg-teal-300", "hover:bg-teal-400");
+      } else {
+        botao.classList.add("bg-teal-200", "cursor-not-allowed", "opacity-70");
+        botao.classList.remove("bg-teal-300", "hover:bg-teal-400");
+      }
     });
   });
 
@@ -91,7 +128,6 @@ if (algumMarcado) {
     await tabelaTarefasConcluidas();
   });
 }
-
 // ---------------- TABELA DE TAREFAS CONCLUÍDAS -------------------
 
 export async function tabelaTarefasConcluidas() {

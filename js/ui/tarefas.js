@@ -25,7 +25,7 @@ export async function criarTarefa() {
 }
 
 
-export async function adicinarTarefa() {
+export async function adicionarTarefa() {
 const form = document.getElementById('formTarefa');
 
 form.addEventListener('submit', async (e) => {
@@ -69,6 +69,7 @@ form.addEventListener('submit', async (e) => {
 
     form.reset(); // 🔹 Limpa os campos
 
+    console.log("tarefa adicionada")
     // 🔹 Atualiza a lista de tarefas automaticamente
     await carregarTarefas();
      dataHoje()
