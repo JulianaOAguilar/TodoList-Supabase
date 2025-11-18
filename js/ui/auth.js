@@ -84,7 +84,7 @@ export function signUpUi() {
                 timer: 1500
             });
 
-            window.location.href = '/pages/login.html';
+            window.location.href = '/pages/index.html';
         } catch (err) {
             console.error("Erro ao fazer login:", err);
             Swal.fire({
