@@ -30,7 +30,7 @@ export async function  verificaAutentificacao(){
 
 export function logout() {
     localStorage.removeItem('sb_token')
-    window.location.href='/pages/index.html'
+    window.location.href='./index.html'
 }
 
 import { supabase } from "./config.js";
