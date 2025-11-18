@@ -23,14 +23,14 @@ export async function  verificaAutentificacao(){
     const token = localStorage.getItem('sb_token')
     //Tem o token?
     if (!token) {   
-        window.location.href='index.html'
+        window.location.href='../index.html'
         return false
     }
 }
 
 export function logout() {
     localStorage.removeItem('sb_token')
-    window.location.href='./index.html'
+    window.location.href='../index.html'
 }
 
 import { supabase } from "./config.js";
