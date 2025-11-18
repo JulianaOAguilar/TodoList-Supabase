@@ -2,7 +2,7 @@
 import { buscarCategorias } from "../modules/categorias.js";
 
 export async function atualizarListaCategoria() {
-  
+
   const ul = document.getElementById('listaCategorias');
   if (!ul) {
     console.warn("Elemento 'listaCategorias' não encontrado na página.");

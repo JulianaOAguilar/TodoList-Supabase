@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List - Tarefas A Fazer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="../images/pending_actions.svg" type="image/x-icon">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-</head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Italianno&family=Ms+Madi&family=Playwrite+CZ:wght@100..400&display=swap"
+        rel="stylesheet">
 
 
-<link rel="icon" href="images/to-do-icon.svg" type="image/x-icon">
- <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
-        <h1 class="text-xl font-bold">To do List</h1>
+    <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
+        <h1 class="font-[Italianno] text-6xl font-bold">To do List</h1>
         <div class="flex items-center gap-4">
             <nav class="bg-gray-100 p-3 shadow-md rounded-md">
                 <ul class="flex gap-4">
@@ -46,12 +50,13 @@
             </button>
         </div>
     </header>
-    
-<body class="bg-white flex flex-col items-center justify-center text-center ">
+
+<body class="bg-white flex flex-col items-center justify-center bg-center bg-cover bg-no-repeat text-center "
+    style="background-image: url('../images/fundo.png')">
     <main>
 
         <!--tabela de tarefas Para Fazer-->
-        <section class="bg-white-100 shadow-md p-3 m-3 w-full mx-auto">
+        <section class="bg-white shadow-md p-3 m-3 w-full mx-auto">
             <h2 class="font-bold p-2 my-3 bg-fuchsia-200"> Tarefas a Fazer: </h2>
 
             <table class="min-w-full bg-white border border-gray-200" id="TarefasFazer">

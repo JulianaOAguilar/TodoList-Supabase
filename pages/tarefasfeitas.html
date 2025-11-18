@@ -8,45 +8,48 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css" rel="stylesheet">
-    <link rel="icon" href="images/done.icon.svg" type="image/x-icon">
+    <link rel="icon" href="../images/favourite.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Italianno&family=Ms+Madi&family=Playwrite+CZ:wght@100..400&display=swap"
+        rel="stylesheet">
+
 </head>
+<header class="bg-violet-300 p-3 w-full flex justify-between items-center">
+    <h1 class="font-[Italianno] text-6xl font-bold">To do List</h1>
+    <div class="flex items-center gap-4">
+        <nav class="bg-gray-100 p-3 shadow-md rounded-md">
+            <ul class="flex gap-4">
+                <li>
+                    <a href="formTarefa.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                        <span class="material-symbols-outlined align-middle">add_to_queue</span>
+                        Adicionar Tarefa
+                    </a>
+                </li>
+                <li>
+                    <a href="tarefasFazer.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                        <span class="material-symbols-outlined align-middle">pending_actions</span>
+                        Tarefas a Fazer
+                    </a>
+                </li>
+                <li>
+                    <a href="formCategoria.html" class="flex items-center gap-1 text-blue-500 hover:underline">
+                        <span class="material-symbols-outlined align-middle">category</span>
+                        Categorias
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition flex items-center gap-1"
+            id="btnLogout">
+            <span class="material-symbols-outlined align-middle">logout</span>
+            Sair
+        </button>
+    </div>
+</header>
 
-    <header class="bg-violet-300 p-3 w-full flex justify-between items-center">
-        <h1 class="text-xl font-bold">To do List</h1>
-        <div class="flex items-center gap-4">
-            <nav class="bg-gray-100 p-3 shadow-md rounded-md">
-                <ul class="flex gap-4">
-                    <li>
-                        <a href="formTarefa.html" class="flex items-center gap-1 text-blue-500 hover:underline">
-                            <span class="material-symbols-outlined align-middle">add_to_queue</span>
-                            Adicionar Tarefa
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tarefasFazer.html" class="flex items-center gap-1 text-blue-500 hover:underline">
-                            <span class="material-symbols-outlined align-middle">pending_actions</span>
-                            Tarefas a Fazer
-                        </a>
-                    </li>
-                    <li>
-                        <a href="formCategoria.html" class="flex items-center gap-1 text-blue-500 hover:underline">
-                            <span class="material-symbols-outlined align-middle">category</span>
-                            Categorias
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <button
-                class="bg-red-500 text-white p-3 px-5 rounded-md hover:bg-red-600 transition flex items-center gap-1"
-                id="btnLogout">
-                <span class="material-symbols-outlined align-middle">logout</span>
-                Sair
-            </button>
-        </div>
-    </header>
-
-<body class="bg-white flex flex-col items-center justify-center text-center">
+<body class="bg-white flex flex-col items-center justify-center bg-center bg-cover bg-no-repeat text-center "
+    style="background-image: url('../images/fundo.png')">
     <main>
         <!-- tabela de Tarefas Feitas -->
         <section class="bg-white shadow-md p-3 m-3 w-full mx-auto">

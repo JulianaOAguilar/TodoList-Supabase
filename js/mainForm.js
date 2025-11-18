@@ -6,7 +6,7 @@ import { carregarTarefas } from "./ui/carregarTarefas.js";
 import { adicionarTarefa } from './ui/tarefas.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-        if (!verificaAutentificacao()) { return }
+    if (!verificaAutentificacao()) { return }
     dataHoje()
     carregarCategorias()
     carregarTarefas()

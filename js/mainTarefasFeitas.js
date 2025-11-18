@@ -5,7 +5,7 @@ import { logoutUi } from "./ui/auth.js";
 import { tabelaTarefasConcluidas } from "./ui/carregarTarefas.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-        if (!verificaAutentificacao()) { return }
+    if (!verificaAutentificacao()) { return }
     tabelaTarefasConcluidas();
     deletarTudo('tarefa', tabelaTarefasConcluidas)
     logoutUi()

@@ -5,7 +5,7 @@ import { carregarTarefas } from "./ui/carregarTarefas.js";
 import { verificaAutentificacao } from "./modules/auth.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-        if (!verificaAutentificacao()) { return }
+    if (!verificaAutentificacao()) { return }
     deletarTudo('tarefa', carregarTarefas)
     logoutUi()
     carregarTarefas()
